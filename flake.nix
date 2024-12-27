@@ -8,17 +8,19 @@
   outputs = { self, nixpkgs }:
     let
       system = "x86_64-linux";
-      version = "1.0.1-a.17";
+      version = "twilight";
       downloadUrl = {
         "specific" = {
-          url = "https://github.com/zen-browser/desktop/releases/download/${version}/zen.linux-specific.tar.bz2";
-          sha256 = "sha256:0ahpig3kafphg0pnkl1r60b9phfp5s2rilpxb20q2fwz41d1miwi";
+          url = "https://github.com/zen-browser/desktop/releases/download/${version}/zen.linux-x86_64.tar.bz2";
+          #sha256 = "sha256:0ahpig3kafphg0pnkl1r60b9phfp5s2rilpxb20q2fwz41d1miwi";
+          sha256 = "sha256:0d7jlqxasvnk5lnqb01pysddcx83klwnc7f347vyapq500iizk2z";
         };
 
-        "generic" = {
-          url = "https://github.com/zen-browser/desktop/releases/download/${version}/zen.linux-generic.tar.bz2";
-          sha256 = "sha256:1n1cq0j8hifvwanqs3wsy5q69w04h397q09adxmdbydm6m8xn5k0";
-        };
+        # "generic" = {
+        #   url = "https://github.com/zen-browser/desktop/releases/download/${version}/zen.linux-generic.tar.bz2";
+        #   sha256 = nixpkgs.lib.fakeSha256;
+        #   #sha256 = "sha256:1n1cq0j8hifvwanqs3wsy5q69w04h397q09adxmdbydm6m8xn5k0";
+        # };
       };
 
       pkgs = import nixpkgs {
@@ -82,7 +84,7 @@
     in
     {
       packages."${system}" = {
-        generic = mkZen { variant = "generic"; };
+        # generic = mkZen { variant = "generic"; };
         specific = mkZen { variant = "specific"; };
 	default = self.packages."${system}".specific;
       };
