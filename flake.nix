@@ -12,8 +12,8 @@
       downloadUrl = {
         "specific" = {
           url = "https://github.com/zen-browser/desktop/releases/download/${version}/zen.linux-x86_64.tar.bz2";
-          #sha256 = "sha256:0ahpig3kafphg0pnkl1r60b9phfp5s2rilpxb20q2fwz41d1miwi";
-          sha256 = "sha256:0d7jlqxasvnk5lnqb01pysddcx83klwnc7f347vyapq500iizk2z";
+          sha256 = sha256:0fb88id64a586hklxwb47gajhx6vj3i14hlip0bz935ba46nyw4a;
+          # sha256 = nixpkgs.lib.fakeSha256;
         };
 
         # "generic" = {
